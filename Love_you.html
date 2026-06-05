@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Для тебя ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    text-align:center;
+    overflow:hidden;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    max-width:600px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1{
+    color:#ff4f81;
+}
+
+button{
+    background:#ff4f81;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    font-size:18px;
+    border-radius:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.hidden{
+    display:none;
+}
+
+img{
+    width:250px;
+    border-radius:20px;
+    margin-top:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.message{
+    margin-top:20px;
+    font-size:20px;
+    color:#444;
+    line-height:1.6;
+}
+
+.final{
+    margin-top:25px;
+    font-size:24px;
+    color:#ff4f81;
+    font-weight:bold;
+}
+
+.heart{
+    position:absolute;
+    font-size:20px;
+    animation:fall 6s linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px);
+    }
+    to{
+        transform:translateY(110vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Если вдруг когда-нибудь станет грустно ❤️</h1>
+
+    <p>
+        Просто нажми кнопку ниже.
+    </p>
+
+    <button onclick="showLove()">
+        Мне грустно
+    </button>
+
+    <div id="content" class="hidden">
+
+        <img src="foto.jpg" alt="Фото">
+
+        <div class="message">
+            Ты самый ценный человек в моей жизни
+            я не жалею ни секунды все все время,
+            что мы с тобой были вместе.
+            Любые проблемы можно решить и я всегда
+            готов прийти тебе на помощь.❤️
+                  Люблю тебя солнышко мое ❤️❤️❤️
+            
+        </div>
+
+        <div class="final">
+            ❤️ Что бы ни случилось, я рядом ❤️
+        </div>
+
+        <br><br>
+
+        <audio controls autoplay>
+            <source src="music.mp3" type="audio/mpeg">
+        </audio>
+
+    </div>
+
+</div>
+
+<script>
+function showLove(){
+    document.getElementById("content").classList.remove("hidden");
+}
+
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+15)+"px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
